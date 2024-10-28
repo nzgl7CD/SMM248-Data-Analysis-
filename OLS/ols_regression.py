@@ -20,7 +20,7 @@ class OLS:
         print('\n')
         print(self._dataset.corr())
         print('\n')
-        print(self.get_regression())  # Call the get_regression method
+        print(self.get_regression())  
         print('\n')
     
     def adjust_data(self, dataset):
@@ -44,7 +44,7 @@ class OLS:
         def wrapper(self, *args, **kwargs):
             result = func(self, *args, **kwargs)
             print("Logging regression results...")
-            print(result.summary())  # Log the summary of the regression
+            print(result.summary())  
             return result
         return wrapper
     
