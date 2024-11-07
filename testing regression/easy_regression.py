@@ -20,8 +20,11 @@ CEOdata['ROExSALES']=CEOdata['ROE']*CEOdata['SALES']
 model='SALARY~ROE+ROS+SALES'
 
 regression1=smf.ols(model, CEOdata).fit()
-CEOdata=CEOdata.dropna()
+# CEOdata=CEOdata.dropna()
+# Dropna is for noobs
 
+# CEOdata.fillna(CEOdata.mean(),inplace=True) #could use mean also
+CEOdata.fillna(CEOdata.interpolate(),inplace=True) #lin increasing
 
 x=CEOdata[['ROE', 'ROS', 'SALES', 'ROExSALES']]
 print("Correlation Matrix")
