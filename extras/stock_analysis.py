@@ -42,13 +42,13 @@ adjusted_dataframe=object.get_dataframe()
 
 
 
-def BS_CALL(self,S, K, T, r, sigma):
+def BS_CALL(S, K, T, r, sigma):
     N = norm.cdf
     d1 = (np.log(S/K) + (r + sigma**2/2)*T) / (sigma*np.sqrt(T))
     d2 = d1 - sigma * np.sqrt(T)
     return S * N(d1) - K * np.exp(-r*T)* N(d2)
 
-def BS_PUT(self,S, K, T, r, sigma):
+def BS_PUT(S, K, T, r, sigma):
     N = norm.cdf
     d1 = (np.log(S/K) + (r + sigma**2/2)*T) / (sigma*np.sqrt(T))
     d2 = d1 - sigma* np.sqrt(T)
@@ -63,6 +63,8 @@ S = np.arange(60,140,0.1)
 
 calls = [BS_CALL(s, K, T, r, sigma) for s in S]
 puts = [BS_PUT(s, K, T, r, sigma) for s in S]
+
+print(calls)
 
 
 
